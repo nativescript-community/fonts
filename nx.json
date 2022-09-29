@@ -1,5 +1,5 @@
 {
-  "npmScope": "nativescript",
+  "npmScope": "nativescript-community",
   "affected": {
     "defaultBase": "master"
   },

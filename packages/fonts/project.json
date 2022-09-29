@@ -1,0 +1,64 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/fonts",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "options": {
+        "outputPath": "dist/packages/fonts",
+        "tsConfig": "packages/fonts/tsconfig.json",
+        "packageJson": "packages/fonts/package.json",
+        "main": "packages/fonts/index.d.ts",
+        "assets": [
+          "packages/fonts/*.md",
+          "packages/fonts/index.d.ts",
+          "LICENSE",
+          {
+            "glob": "**/*",
+            "input": "packages/fonts/platforms/",
+            "output": "./platforms/"
+          }
+        ],
+        "dependsOn": [
+          {
+            "target": "build.all",
+            "projects": "dependencies"
+          }
+        ]
+      }
+    },
+    "build.all": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": ["node tools/scripts/build-finish.ts fonts"],
+        "parallel": false
+      },
+      "outputs": ["dist/packages/fonts"],
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "projects": "dependencies"
+        },
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ]
+    },
+    "focus": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": ["nx g @nativescript/plugin-tools:focus-packages fonts"],
+        "parallel": false
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/fonts/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}
