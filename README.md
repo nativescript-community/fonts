@@ -28,7 +28,7 @@ With this plugin, you can instead reference the `fonticon` by the specific class
 
 ## Install
 
-```
+```console
 npm install @nativescript-community/fonts --save-dev
 ```
 
@@ -47,7 +47,7 @@ This processing is configured in your `webpack.config.js` and occurs at build ti
 
 * Install as a dev dependency
 
-```
+```console
 npm i @fortawesome/fontawesome-free --save-dev
 ```
 
@@ -73,7 +73,7 @@ npm i @fortawesome/fontawesome-free --save-dev
 * Use the icon name in the text and set the class for the font, for example:
 
     ```xml
-    <Label class="fas" text="trash-can"></Label> 
+    <Label class="fas" text="fa-trash-can"></Label> 
     ``` 
 
 * Configure in your `webpack.config.js`
@@ -96,7 +96,7 @@ npm i @fortawesome/fontawesome-free --save-dev
 
 * Install as a dev dependency
 
-    ```
+    ```console
     npm i @mdi/font --save-dev
     ```
 
@@ -240,6 +240,49 @@ An example where we define the tokens for the font in an scss file, [dripicons](
 
     ```
 
+## Full Example webpack.config.js
+
+
+```js
+const webpack = require("@nativescript/webpack");
+const { addFontsConfigFontAwesome, addFontsConfigMDIFont, 
+	FontAwesomeFontType, addFontsConfigCustom } = require('@nativescript-community/fonts');
+module.exports = (env) => {
+	webpack.init(env);
+
+	addFontsConfigFontAwesome({ 
+		fontTypes: [FontAwesomeFontType.solid, 
+					FontAwesomeFontType.brands, 
+					FontAwesomeFontType.regular],
+		 stripCharactersFromFont: true });
+	  
+	  addFontsConfigMDIFont({
+		stripCharactersFromFont: true,
+	  });
+	  
+	  addFontsConfigCustom({ 
+		pathToFont: 'fonts/Monoton-Regular.ttf', 
+		extraCharacters: 'trash-can', 
+		stripCharactersFromFont: true });
+	  
+	  addFontsConfigCustom({
+		pathToFont: 'fonts/icofont.ttf',
+		tokenPrefix: 'icofont-',
+		tokenValues: {
+		  trash: 'ee09',
+		},
+		stripCharactersFromFont: true,
+	  });
+	  
+	  addFontsConfigCustom({ 
+		pathToFont: 'fonts/dripicons-v2.ttf', 
+		tokenPrefix: 'drip-', 
+		tokenScss: 'fonts/dripicons.scss', 
+		stripCharactersFromFont: true });
+
+	return webpack.resolveConfig();
+};
+```
 ## Usage Notes
 
 In the examples above `stripCharactersFromFont` is set to `true`.  This ensures tha the unused characters are stripped from the fonts.
