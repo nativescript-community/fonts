@@ -11,30 +11,21 @@ export function addFontsConfigFontAwesome(options: FontAwesomFontOptions) {
     throw new Error('You must pass the font types to use, e.g. [FontAwesomeFontType.solid]');
   }
   // which fonts to use in the font-awesome bundle.
-
   const pathsToFonts = pathsToFontAwesomeFonts(options);
-  webpack.Utils.log.info('path to font', pathsToFonts);
 
   const icons = getFontAwesomeStyleIconsByModule('@fortawesome/fontawesome-free/scss/_variables.scss', '$fa-var-');
-  webpack.Utils.log.info('Icons', icons);
 
   addFontsConfig(icons, options?.tokenPrefix ? options.tokenPrefix : 'fa-', pathsToFonts, options?.stripCharactersFromFont);
 }
 
 export function addFontsConfigMDIFont(options: FontOptions) {
-  // which fonts to use in the font-awesome bundle.
-
   const pathToFont = path.relative(webpack.Utils.project.getProjectFilePath('node_modules'), require.resolve('@mdi/font/fonts/materialdesignicons-webfont.ttf'));
   const icons = getMDIStyleIcons('@mdi/font/scss/_variables.scss', '$mdi-icons');
 
-  webpack.Utils.log.info('path to font', pathToFont);
-  console.log('IN MIDI:', options?.stripCharactersFromFont);
   addFontsConfig(icons, options?.tokenPrefix ? options.tokenPrefix : 'mdi-', [pathToFont], options?.stripCharactersFromFont);
 }
 
 export function addFontsConfigCustom(options: FontOptions) {
-  // which fonts to use in the font-awesome bundle.
-  console.log('WTF', options);
   if (!existsSync(options?.pathToFont)) {
     throw new Error('Font file does not exist:' + options?.pathToFont);
   }
@@ -43,7 +34,6 @@ export function addFontsConfigCustom(options: FontOptions) {
     icons = getFontAwesomeStyleIcons(options.tokenScss, options.tokenScssPrefix ? options.tokenScssPrefix : '$');
   }
   const pathToFont = path.relative(webpack.Utils.project.getProjectFilePath('node_modules'), options?.pathToFont);
-  webpack.Utils.log.info('path to font', options?.pathToFont);
   addFontsConfig(options.tokenValues ?? icons, options.tokenPrefix, [pathToFont], options?.stripCharactersFromFont, options?.extraCharacters);
 }
 
@@ -92,7 +82,6 @@ function processFont(glyphs, content) {
 }
 function getFontAwesomeStyleIconsByModule(modulePath: string, variablesPrefix: string) {
   const variablesPath = require.resolve(modulePath);
-  console.log('variables Path');
   return getFontAwesomeStyleIcons(variablesPath, variablesPrefix);
 }
 
@@ -109,7 +98,6 @@ function getMDIStyleIcons(variablesScss: string, variableName: string): object {
   const result: object = {};
   const variablesPath = require.resolve(variablesScss);
   const fontAwesomeSymbols = symbolsParser.parseSymbols(readFileSync(variablesPath).toString());
-  webpack.Utils.log.info('************************');
   const variable = fontAwesomeSymbols.variables.find((value) => value.name === variableName);
   if (variable) {
     const v = variable.value.split(',\n');
@@ -118,8 +106,6 @@ function getMDIStyleIcons(variablesScss: string, variableName: string): object {
       const entry = value.trimStart().split(' ');
       result[entry[0].replace('"', '').replace('"', '')] = entry[1]; // fix this
     }
-
-    webpack.Utils.log.info('parsed', result);
   }
 
   return result;
@@ -129,7 +115,7 @@ function addFontsConfig(iconsFromScss: object, inAppPrefix: string, fontLocation
   // custom font pass in list of characters and skip the parsing/replacing
   // material font usage ?
 
-  webpack.Utils.log.info('************************');
+  webpack.Utils.log.info('path to fonts', fontLocation);
 
   webpack.chainWebpack((config) => {
     const iconsUsedInApp = [];
@@ -145,13 +131,11 @@ function addFontsConfig(iconsFromScss: object, inAppPrefix: string, fontLocation
         .options({
           search: inAppPrefix + '([a-z-]+)',
           replace: (match, p1) => {
-            webpack.Utils.log.info('match', p1);
             if (iconsFromScss[p1]) {
               const unicodeHex = iconsFromScss[p1];
               const numericValue = parseInt(unicodeHex, 16);
               const character = fixedFromCharCode(numericValue);
               iconsUsedInApp.push(character);
-              webpack.Utils.log.info('matched ', character);
               return character;
             }
             return match;
@@ -159,18 +143,14 @@ function addFontsConfig(iconsFromScss: object, inAppPrefix: string, fontLocation
           flags: 'g',
         });
     }
-    console.log('Adding Extra****************************', fontLocation, extraCharaters, ...extraCharaters);
     iconsUsedInApp.push(...extraCharaters);
     for (const fontPath of fontLocation) {
-      webpack.Utils.log.info('Font Path', fontPath);
-      console.log('Font Path', fontPath);
       config.plugin('CopyWebpackPlugin').tap((args) => {
         args[0].patterns.push({
           from: fontPath,
           to: 'fonts',
           transform: {
             transformer: (content) => {
-              console.log('Stripping Icons X****************************', forceStripFromFont, fontPath, iconsUsedInApp.length);
               if (forceStripFromFont) {
                 return processFont(iconsUsedInApp.join(''), content);
               } else {
@@ -187,7 +167,6 @@ function addFontsConfig(iconsFromScss: object, inAppPrefix: string, fontLocation
         // should always return all the arguments that should be passed to the plugin constructor
         // in some cases you may want to remove an argument - you can do that by returning an array
         // with that argument removed from it.
-        webpack.Utils.log.info('args)))', args);
         return args;
       });
     }
