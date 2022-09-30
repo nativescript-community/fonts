@@ -34,7 +34,7 @@ npm install @nativescript-community/fonts --save-dev
 
 ### Usage
 
-The plugin performs two pieces of processing on your project when enabled as build time:
+The plugin performs two pieces of processing on your project when enabled at build time:
 
 * It will scan your code for the relevant character tokens, replacing them with the actual character.
 * It will parse your font file and remove all unused characters, which depending on your particular usage will greatly reduce the size of the font.
