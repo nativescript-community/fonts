@@ -19,7 +19,7 @@
            <Label row="1" col="0"  text="fas&#8722;trash&#8722;can" />
            <Label row="2" col="0" text="fas&#8722;square&#8722;whatsapp" />
            <Label row="3" col="0" text="mdi&#8722;trash&#8722;can" />
-           <Label row="4" col="0"  text="trash&#8722;can" />
+           <Label row="4" col="0"  text="Monoton:" />
            <Label row="5" col="0"  text="icofont&#8722;trash" />
             <Label row="6" col="0"  text="drip&#8722;trash" />
           </GridLayout>
