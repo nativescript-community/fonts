@@ -28,7 +28,7 @@
   "bugs": {
     "url": "https://github.com/NativeScript/plugins/issues"
   },
-  "license": "Apache-2.0",
+  "license": "MIT",
   "homepage": "https://github.com/NativeScript/plugins",
   "readmeFilename": "README.md",
   "bootstrapper": "@nativescript/plugin-seed",

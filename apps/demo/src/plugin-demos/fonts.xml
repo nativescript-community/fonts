@@ -7,17 +7,17 @@
         <ScrollView class="h-full">
           <GridLayout columns="*,*" rows="auto,auto,auto,auto,auto,auto,auto">
            
-           <Label row="0" col="1"  text="fas-trash-can" class="btn btn-primary fas"/>
-           <Label row="1" col="1"  text="fas-trash-can" class="btn btn-primary far"/>
-           <Label row="2" col="1" text="fas-square-whatsapp" class="btn btn-primary fab"/>
+           <Label row="0" col="1"  text="fa-trash-can" class="btn btn-primary fas"/>
+           <Label row="1" col="1"  text="fa-trash-can" class="btn btn-primary far"/>
+           <Label row="2" col="1" text="fa-square-whatsapp" class="btn btn-primary fab"/>
            <Label row="3" col="1" text="mdi-trash-can" class="btn btn-primary mdi"/>
            <Label row="4" col="1"  text="trash-can" class="btn btn-primary monoton"/>
            <Label row="5" col="1"  text="icofont-trash" class="btn btn-primary icoFont"/>
             <Label row="6" col="1"  text="drip-trash-can" class="btn btn-primary drip"/>
 
-            <Label row="0" col="0"  text="fas&#8722;trash&#8722;can" />
-           <Label row="1" col="0"  text="fas&#8722;trash&#8722;can" />
-           <Label row="2" col="0" text="fas&#8722;square&#8722;whatsapp" />
+            <Label row="0" col="0"  text="fa&#8722;trash&#8722;can" />
+           <Label row="1" col="0"  text="fa&#8722;trash&#8722;can" />
+           <Label row="2" col="0" text="fa&#8722;square&#8722;whatsapp" />
            <Label row="3" col="0" text="mdi&#8722;trash&#8722;can" />
            <Label row="4" col="0"  text="Monoton:" />
            <Label row="5" col="0"  text="icofont&#8722;trash" />

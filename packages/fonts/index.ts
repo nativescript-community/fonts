@@ -18,7 +18,7 @@ export function addFontsConfigFontAwesome(options: FontAwesomFontOptions) {
   const icons = getFontAwesomeStyleIconsByModule('@fortawesome/fontawesome-free/scss/_variables.scss', '$fa-var-');
   webpack.Utils.log.info('Icons', icons);
 
-  addFontsConfig(icons, options?.tokenPrefix ? options.tokenPrefix : 'fas-', pathsToFonts, options?.stripCharactersFromFont);
+  addFontsConfig(icons, options?.tokenPrefix ? options.tokenPrefix : 'fa-', pathsToFonts, options?.stripCharactersFromFont);
 }
 
 export function addFontsConfigMDIFont(options: FontOptions) {
