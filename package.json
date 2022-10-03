@@ -44,7 +44,7 @@
     "scss-symbols-parser": "^2.0.1",
     "string-replace-loader": "3.1.0",
     "fontmin": "^0.9.9",
-    "@mdi/font": "^7.0.96"
+    "@mdi/font": "^6.0.0"
   },
   "lint-staged": {
     "**/*.{js,ts,scss,json,html}": [

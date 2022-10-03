@@ -1,22 +1,59 @@
 ﻿@import 'nativescript-theme-core/scss/light';
 @import 'nativescript-theme-core/scss/index';
 
-button, label, stack-layout {
-    horizontal-align: center;
+button,
+label,
+stack-layout {
+  horizontal-align: center;
 }
 
 button {
-    font-size: 36;
+  font-size: 36;
 }
 
 .title {
-    font-size: 30;
-    margin: 20;
+  font-size: 30;
+  margin: 20;
 }
 
 .message {
-    font-size: 20;
-    color: #284848;
-    text-align: center;
-    margin: 0 20;
-} 
+  font-size: 20;
+  color: #284848;
+  text-align: center;
+  margin: 0 20;
+}
+
+.fas {
+  font-family: 'Font Awesome 6 Free', 'fa-solid-900';
+  font-weight: 900;
+}
+
+.far {
+  font-family: 'Font Awesome 6 Free', 'fa-regular-400';
+  font-weight: 400;
+}
+
+.fab {
+  font-family: 'Font Awesome 6 Brands', 'fa-brands-400';
+  font-weight: 400;
+}
+
+.mdi {
+  font-family: 'Material Design Icons', 'materialdesignicons-webfont';
+  font-weight: 400;
+}
+
+.monoton {
+  font-family: 'Monoton', 'Monoton-Regular';
+  font-weight: 400;
+}
+
+.icoFont {
+  font-family: 'IcoFont', 'icofont';
+  font-weight: 400;
+}
+
+.drip {
+  font-family: 'dripicons-v2', 'dripicons-v2';
+  font-weight: 400;
+}
