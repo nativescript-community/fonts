@@ -1,2 +1,34 @@
 @import 'nativescript-theme-core/scss/light';
 @import 'nativescript-theme-core/scss/index';
+
+.fas {
+  font-family: 'Font Awesome 6 Free', 'fa-solid-900';
+  font-weight: 900;
+}
+
+.far {
+  font-family: 'Font Awesome 6 Free', 'fa-regular-400';
+  font-weight: 400;
+}
+
+.fab {
+  font-family: 'Font Awesome 6 Brands', 'fa-brands-400';
+  font-weight: 400;
+}
+
+.mdi {
+  font-family: 'Material Design Icons', 'materialdesignicons-webfont';
+  font-weight: 400;
+}
+.monoton {
+  font-family: 'Monoton', 'Monoton-Regular';
+  font-weight: 400;
+}
+.icoFont {
+  font-family: 'IcoFont', 'icofont';
+  font-weight: 400;
+}
+.drip {
+  font-family: 'dripicons-v2', 'dripicons-v2';
+  font-weight: 400;
+}
