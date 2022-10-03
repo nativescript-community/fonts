@@ -1,2 +1,2 @@
 # @nativescript-community/fonts
-See [../../README.md]
+See [README.md](../../README.md)
