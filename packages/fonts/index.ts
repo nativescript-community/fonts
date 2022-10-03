@@ -4,7 +4,7 @@ import { existsSync, readFileSync } from 'fs';
 import * as path from 'path';
 import * as symbolsParser from 'scss-symbols-parser';
 
-/***
+/**
  * Configure FontAwesome fonts.
  */
 export function addFontsConfigFontAwesome(options: FontAwesomFontOptions) {
@@ -21,7 +21,7 @@ export function addFontsConfigFontAwesome(options: FontAwesomFontOptions) {
   addFontsConfig(icons, options?.tokenPrefix ? options.tokenPrefix : 'fa-', pathsToFonts, options?.stripCharactersFromFont);
 }
 
-/***
+/**
  * Configure Material Design font.
  */
 export function addFontsConfigMDIFont(options: FontOptions) {
@@ -31,7 +31,7 @@ export function addFontsConfigMDIFont(options: FontOptions) {
   addFontsConfig(icons, options?.tokenPrefix ? options.tokenPrefix : 'mdi-', [pathToFont], options?.stripCharactersFromFont);
 }
 
-/***
+/**
  * Configure a font.
  */
 export function addFontsConfigCustom(options: FontOptions) {
@@ -47,16 +47,56 @@ export function addFontsConfigCustom(options: FontOptions) {
 }
 
 export interface FontOptions {
+  /**
+   * Object describing the font token names against character codes.
+   *
+   * @example
+   * tokenValues: {
+   *   trash: 'ee09',
+   * },
+   */
   tokenValues?: object;
+  /**
+   * The token which appears in your code before the font-icon name.
+   *
+   * @example
+   * <Label text="iamthetokenprefix-trash-can" >
+   * tokenPrefix: 'iamthetokenprefix-',
+   *
+   */
   tokenPrefix?: string;
+  /**
+   * Path to the font relative to the project root.
+   */
   pathToFont?: string;
+  /**
+   * Characters used in the font which are not tokens.
+   *
+   * These will not be stripped from the font
+   */
   extraCharacters?: string;
+  /**
+   * Path to scss which contains variables mapping token names to character codes.
+   */
   tokenScss?: string;
+  /**
+   * string which appears before the token name in the scss
+   */
   tokenScssPrefix?: string;
+  /**
+   * Should the font be stripped of all unused characters.
+   *
+   * Set to false during development.
+   */
   stripCharactersFromFont?: boolean;
 }
 
 export interface FontAwesomFontOptions extends FontOptions {
+  /**
+   * Specify which of the FontAwesome fonts are being used.
+   *
+   * At least one value is required.
+   */
   fontTypes: FontAwesomeFontType[];
 }
 
