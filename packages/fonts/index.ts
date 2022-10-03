@@ -4,6 +4,9 @@ import { existsSync, readFileSync } from 'fs';
 import * as path from 'path';
 import * as symbolsParser from 'scss-symbols-parser';
 
+/***
+ * Configure FontAwesome fonts.
+ */
 export function addFontsConfigFontAwesome(options: FontAwesomFontOptions) {
   // Check if required is passed.
 
@@ -18,6 +21,9 @@ export function addFontsConfigFontAwesome(options: FontAwesomFontOptions) {
   addFontsConfig(icons, options?.tokenPrefix ? options.tokenPrefix : 'fa-', pathsToFonts, options?.stripCharactersFromFont);
 }
 
+/***
+ * Configure Material Design font.
+ */
 export function addFontsConfigMDIFont(options: FontOptions) {
   const pathToFont = path.relative(webpack.Utils.project.getProjectFilePath('node_modules'), require.resolve('@mdi/font/fonts/materialdesignicons-webfont.ttf'));
   const icons = getMDIStyleIcons('@mdi/font/scss/_variables.scss', '$mdi-icons');
@@ -25,6 +31,9 @@ export function addFontsConfigMDIFont(options: FontOptions) {
   addFontsConfig(icons, options?.tokenPrefix ? options.tokenPrefix : 'mdi-', [pathToFont], options?.stripCharactersFromFont);
 }
 
+/***
+ * Configure a font.
+ */
 export function addFontsConfigCustom(options: FontOptions) {
   if (!existsSync(options?.pathToFont)) {
     throw new Error('Font file does not exist:' + options?.pathToFont);
