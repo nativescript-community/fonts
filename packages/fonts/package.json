@@ -1,6 +1,6 @@
 {
   "name": "@nativescript-community/fonts",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Process fonts in a nativescript package",
   "main": "index",
   "typings": "index.d.ts",
