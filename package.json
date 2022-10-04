@@ -43,7 +43,7 @@
     "@fortawesome/fontawesome-free": "~6.2.0",
     "scss-symbols-parser": "^2.0.1",
     "string-replace-loader": "3.1.0",
-    "fontmin": "^0.9.9",
+    "@akylas/fontmin": "^0.9.9",
     "@mdi/font": "^6.0.0"
   },
   "lint-staged": {

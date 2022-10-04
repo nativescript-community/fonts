@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jcassidyav/fonts.git"
+    "url": "https://github.com/nativescript-community/fonts.git"
   },
   "keywords": [
     "NativeScript",
@@ -22,19 +22,19 @@
     "Android"
   ],
   "author": {
-    "name": "NativeScript",
-    "email": "oss@nativescript.org"
+    "name": "Jason Cassidy",
+    "url": "https://github.com/jcassidyav"
   },
   "bugs": {
-    "url": "https://github.com/jcassidyav/fonts/issues"
+    "url": "https://github.com/nativescript-community/fonts/issues"
   },
   "license": "MIT",
-  "homepage": "https://github.com/jcassidyav/fonts",
+  "homepage": "https://github.com/nativescript-community/fonts",
   "readmeFilename": "README.md",
   "bootstrapper": "@nativescript/plugin-seed",
   "dependencies": {
     "scss-symbols-parser": "^2.0.1",
     "string-replace-loader": "3.1.0",
-    "fontmin": "^0.9.9"
+    "@akylas/fontmin": "^0.9.9"
   }
 }

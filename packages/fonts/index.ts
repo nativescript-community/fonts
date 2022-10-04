@@ -1,5 +1,5 @@
+import * as Fontmin from '@akylas/fontmin';
 import * as webpack from '@nativescript/webpack';
-import * as Fontmin from 'fontmin';
 import { existsSync, readFileSync } from 'fs';
 import * as path from 'path';
 import * as symbolsParser from 'scss-symbols-parser';
