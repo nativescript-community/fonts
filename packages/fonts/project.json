@@ -11,7 +11,7 @@
         "packageJson": "packages/fonts/package.json",
         "main": "packages/fonts/index.d.ts",
         "assets": [
-          "packages/fonts/*.md",
+          "README.md",
           "packages/fonts/index.d.ts",
           "LICENSE.md",
           {
