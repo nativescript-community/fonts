@@ -1,4 +1,4 @@
-import * as Fontmin from '@akylas/fontmin';
+import * as Fontmin from '@nativescript-community/fontmin';
 import * as webpack from '@nativescript/webpack';
 import { existsSync, readFileSync } from 'fs';
 import * as path from 'path';
