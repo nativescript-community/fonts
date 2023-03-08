@@ -240,6 +240,43 @@ An example where we define the tokens for the font in an scss file, [dripicons](
 
     ```
 
+An example where we define the tokens for the font in an scss file, [IcoMoon](https://icomoon.io/).
+
+* Generate and Download your pack, making sure you generate sass.
+* Place the font and the `variables.scss` in your project e.g. in the `fonts\icomoon` directory.
+* Add the css
+    ```css
+    .icon {
+      font-family: 'icomoon', 'iconmoon';
+      font-weight: 400;
+    }
+    ```
+* Configure in your `webpack.config.js`
+
+  Import the required function/enum:
+    ```js
+    const { addFontsConfigCustom } = require('@nativescript-community/fonts');
+
+
+    ```
+  Configure the fonts that you are using:
+  ```js
+  
+    addFontsConfigCustom({ pathToFont: 'fonts/icomoon/icomoon.ttf', 
+      tokenPrefix: 'icon-', 
+      tokenScss: 'fonts/icomoon/variables.scss', 
+      tokenScssPrefix:'$icon-',
+      stripCharactersFromFont: true });
+
+  ```
+
+   
+* Use the font:
+    ```xml
+        <Label text="icon-spades" class="btn btn-primary icon"/>
+    ```
+
+
 ## Full Example webpack.config.js
 
 
@@ -279,6 +316,12 @@ module.exports = (env) => {
 		tokenPrefix: 'drip-', 
 		tokenScss: 'fonts/dripicons.scss', 
 		stripCharactersFromFont: true });
+
+    addFontsConfigCustom({ pathToFont: 'fonts/icomoon/icomoon.ttf', 
+          tokenPrefix: 'icon-', 
+          tokenScss: 'fonts/icomoon/variables.scss', 
+          tokenScssPrefix:'$icon-',
+          stripCharactersFromFont: true });
 
 	return webpack.resolveConfig();
 };

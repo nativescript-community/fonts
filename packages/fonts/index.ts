@@ -138,7 +138,7 @@ function getFontAwesomeStyleIcons(variablesPath: string, variablesPrefix: string
   const fontAwesomeSymbols = symbolsParser.parseSymbols(readFileSync(variablesPath).toString());
 
   return fontAwesomeSymbols.variables.reduce(function (acc, value) {
-    acc[value.name.replace(variablesPrefix, '')] = value.value.slice(1);
+    acc[value.name.replace(variablesPrefix, '')] = value.value.replace('"', '').slice(1);
     return acc;
   }, {});
 }
@@ -178,7 +178,7 @@ function addFontsConfig(iconsFromScss: object, inAppPrefix: string, fontLocation
         .use('string-replace-loader')
         .loader('string-replace-loader')
         .options({
-          search: inAppPrefix + '([a-z-]+)',
+          search: inAppPrefix + '([a-z-0-9]+)',
           replace: (match, p1) => {
             if (iconsFromScss[p1]) {
               const unicodeHex = iconsFromScss[p1];
