@@ -239,8 +239,8 @@ An example where we define the tokens for the font in an scss file, [dripicons](
         <Label text="drip-trash-can" class="drip"/>
 
     ```
-
-An example where we define the tokens for the font in an scss file, [IcoMoon](https://icomoon.io/).
+### icomoon
+This is also an example where the definitions for the tokens for the font are in an scss file, [IcoMoon](https://icomoon.io/).
 
 * Generate and Download your pack, making sure you generate sass.
 * Place the font and the `variables.scss` in your project e.g. in the `fonts\icomoon` directory.
