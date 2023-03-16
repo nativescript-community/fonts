@@ -138,7 +138,8 @@ function getFontAwesomeStyleIcons(variablesPath: string, variablesPrefix: string
   const fontAwesomeSymbols = symbolsParser.parseSymbols(readFileSync(variablesPath).toString());
 
   return fontAwesomeSymbols.variables.reduce(function (acc, value) {
-    acc[value.name.replace(variablesPrefix, '')] = value.value.replace('"', '').slice(1);
+    const fromscss = value.value.replace(/[^0-9a-fA-F]/g, '');
+    acc[value.name.replace(variablesPrefix, '')] = fromscss;
     return acc;
   }, {});
 }
