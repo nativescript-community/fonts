@@ -24,6 +24,6 @@ module.exports = (env) => {
     stripCharactersFromFont: true,
   });
   addFontsConfigCustom({ pathToFont: '../../tools/assets/fonts/dripicons-v2.ttf', tokenPrefix: 'drip-', tokenScss: '../../tools/assets/fonts/dripicons.scss', stripCharactersFromFont: true });
-
+  addFontsConfigCustom({ pathToFont: '../../tools/assets/fonts/icomoon/icomoon.ttf', tokenPrefix: 'icon-', tokenScss: '../../tools/assets/fonts/icomoon/variables.scss', tokenScssPrefix: '$icon-', stripCharactersFromFont: true });
   return webpack.resolveConfig();
 };
