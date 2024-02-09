@@ -1,5 +1,5 @@
-import * as Fontmin from '@nativescript-community/fontmin';
 import * as webpack from '@nativescript/webpack';
+import Fontmin from 'fontmin';
 import { existsSync, readFileSync } from 'fs';
 import * as path from 'path';
 import * as symbolsParser from 'scss-symbols-parser';
@@ -124,7 +124,10 @@ function processFont(glyphs, content) {
         if (err) {
           reject(err);
         } else {
-          resolvePromise(files[0].contents);
+          // The types seem to be wrong for files param so working around.
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const actualFiles = files as any;
+          resolvePromise(actualFiles[0].contents);
         }
       });
   });
