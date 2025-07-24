@@ -1,6 +1,10 @@
 @import 'nativescript-theme-core/scss/light';
 @import 'nativescript-theme-core/scss/index';
 
+.rounded {
+  border-radius: 20;
+}
+
 .fas {
   font-family: 'Font Awesome 6 Free', 'fa-solid-900';
   font-weight: 900;

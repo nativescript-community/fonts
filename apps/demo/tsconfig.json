@@ -5,7 +5,9 @@
     "baseUrl": ".",
     "paths": {
       "~/*": ["src/*"],
-      "@demo/shared": ["../../tools/demo/index.ts"]
+      "@demo/shared": ["../../tools/demo/index.ts"],
+      "@nativescript-community/*": ["../../packages/*"],
+      "@nativescript-community/fonts": ["../../packages/fonts/index.d.ts"]
     }
   }
 }

@@ -21,6 +21,7 @@
     ],
     "paths": {
       "@demo/shared": ["tools/demo/index.ts"],
+      "@nativescript-community/*": ["packages/*"],
       "@nativescript-community/fonts": ["packages/fonts/index.d.ts"]
     }
   },

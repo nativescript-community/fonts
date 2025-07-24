@@ -7,7 +7,6 @@
 
 # dependencies
 node_modules
-package-lock.json
 yarn.lock
 
 # IDEs and editors
@@ -42,3 +41,6 @@ Thumbs.db
 
 *.tgz
 packages/**/angular/dist
+
+.nx/cache
+.nx/workspace-data

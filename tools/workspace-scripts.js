@@ -23,44 +23,26 @@ module.exports = {
       },
       demo: {
         clean: {
-          script: 'nx run demo:clean',
+          script: 'nx clean demo',
           description: '⚆  Clean  🧹',
         },
         ios: {
-          script: 'nx run demo:ios',
+          script: 'nx debug demo ios',
           description: '⚆  Run iOS  ',
         },
         android: {
-          script: 'nx run demo:android',
-          description: '⚆  Run Android  🤖',
-        },
-      },
-      '...Angular...': {
-        script: `npx cowsay "Test all the Angles!"`,
-        description: ` 🔻 Angular`,
-      },
-      'demo-angular': {
-        clean: {
-          script: 'nx run demo-angular:clean',
-          description: '⚆  Clean  🧹',
-        },
-        ios: {
-          script: 'nx run demo-angular:ios',
-          description: '⚆  Run iOS  ',
-        },
-        android: {
-          script: 'nx run demo-angular:android',
+          script: 'nx debug demo android',
           description: '⚆  Run Android  🤖',
         },
       },
     },
     '⚙️': {
-      script: `npx cowsay "@nativescript/* packages will keep your ⚙️ cranking"`,
-      description: '_____________  @nativescript/*  _____________',
+      script: `npx cowsay "@nativescript-community/* packages will keep your ⚙️ cranking"`,
+      description: '_____________  @nativescript-community/*  _____________',
     },
     // packages
     // build output is always in dist/packages
-    '@nativescript': {
+    '@nativescript-community': {
       // @nativescript-community/fonts
       fonts: {
         build: {
