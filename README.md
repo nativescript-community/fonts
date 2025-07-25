@@ -32,6 +32,17 @@ With this plugin, you can instead reference the `fonticon` by the specific class
 npm install @nativescript-community/fonts --save-dev
 ```
 
+Due to recent breaking changes to transient dependencies you will need to add an overrides section to your `pacakge.json` file.
+
+```json
+"overrides": {
+    "fontmin": {
+      ".": "1.1.0",
+      "fonteditor-core": "2.4.1"
+    }
+  }
+```
+
 ### Usage
 
 The plugin performs two pieces of processing on your project when enabled at build time:
