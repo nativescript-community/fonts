@@ -35,6 +35,12 @@
   "dependencies": {
     "scss-symbols-parser": "^2.0.1",
     "string-replace-loader": "3.1.0",
-    "fontmin": "^1.0.1"
+    "fontmin": "1.1.0"
+  },
+  "overrides": {
+    "fontmin": {
+      ".": "1.1.0",
+      "fonteditor-core": "2.4.1"
+    }
   }
 }

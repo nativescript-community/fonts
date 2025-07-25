@@ -5,16 +5,16 @@
   "sourceRoot": "packages/fonts",
   "targets": {
     "build": {
-      "executor": "@nrwl/js:tsc",
+      "executor": "@nx/js:tsc",
       "options": {
         "outputPath": "dist/packages/fonts",
         "tsConfig": "packages/fonts/tsconfig.json",
         "packageJson": "packages/fonts/package.json",
         "main": "packages/fonts/index.d.ts",
         "assets": [
-          "README.md",
+          "packages/fonts/*.md",
           "packages/fonts/index.d.ts",
-          "LICENSE.md",
+          "LICENSE",
           {
             "glob": "**/*",
             "input": "packages/fonts/platforms/",
@@ -55,7 +55,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/eslint:eslint",
       "options": {
         "lintFilePatterns": ["packages/fonts/**/*.ts"]
       }
