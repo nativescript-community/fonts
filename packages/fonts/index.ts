@@ -3,7 +3,7 @@ import { existsSync, readFileSync } from 'fs';
 import * as path from 'path';
 import * as symbolsParser from 'scss-symbols-parser';
 const subsetFont = require('subset-font');
-
+let fontAwesomeMajorVersion: number = 0;
 /**
  * Configure FontAwesome fonts.
  */
@@ -13,10 +13,15 @@ export function addFontsConfigFontAwesome(options: FontAwesomFontOptions) {
   if (!options || !options.fontTypes || !Array.isArray(options.fontTypes) || options.fontTypes.length === 0) {
     throw new Error('You must pass the font types to use, e.g. [FontAwesomeFontType.solid]');
   }
+
+  if (fontAwesomeMajorVersion === 0) {
+    fontAwesomeMajorVersion = getFontAwesomeMajorVersion();
+  }
+
   // which fonts to use in the font-awesome bundle.
   const pathsToFonts = pathsToFontAwesomeFonts(options);
 
-  const icons = getFontAwesomeStyleIconsByModule('@fortawesome/fontawesome-free/scss/_variables.scss', '$fa-var-');
+  const icons = getFontAwesomeStyleIconsByModule('@fortawesome/fontawesome-free/scss/_variables.scss', fontAwesomeMajorVersion >= 7 ? '$var-' : '$fa-var-');
 
   addFontsConfig(icons, options?.tokenPrefix ? options.tokenPrefix : 'fa-', pathsToFonts, options?.stripCharactersFromFont);
 }
@@ -116,8 +121,12 @@ function fixedFromCharCode(codePt: number) {
   }
 }
 
-function processFont(glyphs: unknown, content: unknown) {
-  return subsetFont(content, glyphs, { targetFormat: 'sfnt' });
+function processFont(glyphs: unknown, content: unknown, stripFromFont = false) {
+  if (stripFromFont) {
+    return subsetFont(content, glyphs, { targetFormat: 'sfnt' });
+  } else {
+    return subsetFont(content, undefined, { targetFormat: 'sfnt', keepAllGlyphs: true });
+  }
   /*
   return new Promise((resolvePromise, reject) => {
     
@@ -213,11 +222,7 @@ function addFontsConfig(iconsFromScss: Record<string, string> | undefined, inApp
           to: to,
           transform: {
             transformer: (content: unknown) => {
-              if (forceStripFromFont) {
-                return processFont(iconsUsedInApp.join(''), content);
-              } else {
-                return content;
-              }
+              return processFont(iconsUsedInApp.join(''), content, forceStripFromFont);
             },
           },
           // the context of the "from" rule, in this case node_modules
@@ -247,4 +252,11 @@ function pathsToFontAwesomeFonts(options: FontAwesomFontOptions) {
     paths.push(path.relative(nodeModulesPath, fontPath));
   }
   return paths;
+}
+
+function getFontAwesomeMajorVersion(): number {
+  const packageJsonPath = path.join(webpack.Utils.project.getProjectFilePath('node_modules'), '@fortawesome/fontawesome-free/package.json');
+  const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8'));
+  const [major, minor, patch] = packageJson.version.split('.').map(Number);
+  return major;
 }
