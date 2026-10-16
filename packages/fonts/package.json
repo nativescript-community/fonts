@@ -33,9 +33,8 @@
   "readmeFilename": "README.md",
   "bootstrapper": "@nativescript/plugin-seed",
   "dependencies": {
-    "scss-symbols-parser": "^2.0.1",
+    "scss-symbols-parser": "2.0.1",
     "string-replace-loader": "3.1.0",
-    "fonteditor-core": "2.4.1",
-    "fontmin": "1.1.0"
+    "subset-font": "2.9.0"
   }
 }

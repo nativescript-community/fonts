@@ -339,6 +339,3 @@ For a better development experience you want to set this to false during develop
 Idea came from [farfromrefug](https://github.com/farfromrefug)'s [post here](https://discord.com/channels/603595811204366337/606457523574407178/904382834570068058).
 
 
-# License
-
-[MIT](/LICENSE)

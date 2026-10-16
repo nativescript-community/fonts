@@ -15,6 +15,7 @@
           "packages/fonts/*.md",
           "packages/fonts/index.d.ts",
           "LICENSE",
+          "README.md",
           {
             "glob": "**/*",
             "input": "packages/fonts/platforms/",
