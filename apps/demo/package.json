@@ -4,11 +4,11 @@
   "license": "SEE LICENSE IN <your-license-filename>",
   "repository": "<fill-your-repository-here>",
   "dependencies": {
-    "@nativescript/core": "~8.9.0"
+    "@nativescript/core": "~9.0.0"
   },
   "devDependencies": {
-    "@nativescript/android": "~8.9.0",
-    "@nativescript/ios": "~8.9.0",
+    "@nativescript/android": "~9.0.0",
+    "@nativescript/ios": "~9.0.0",
     "@fortawesome/fontawesome-free": "7.3.1",
     "@mdi/font": "^6.0.0",
     "@nativescript-community/fonts": "file:../../dist/packages/fonts"

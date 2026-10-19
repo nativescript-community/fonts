@@ -55,18 +55,18 @@ npm i @fortawesome/fontawesome-free --save-dev
 
     ```css
     .fas {
-    font-family: 'Font Awesome 6 Free', 'fa-solid-900';
-    font-weight: 900;
+      font-family: 'Font Awesome 7 Free Solid', 'fa-solid-900';
+      font-weight: 900;
     }
 
     .far {
-    font-family: 'Font Awesome 6 Free', 'fa-regular-400';
-    font-weight: 400;
+      font-family: 'Font Awesome 7 Free', 'fa-regular-400';
+      font-weight: 400;
     }
 
     .fab {
-    font-family: 'Font Awesome 6 Brands', 'fa-brands-400';
-    font-weight: 400;
+      font-family: 'Font Awesome 7 Brands', 'fa-brands-400';
+      font-weight: 400;
     }
     ```
 
