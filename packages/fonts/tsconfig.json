@@ -3,7 +3,8 @@
   "compilerOptions": {
     "module": "commonjs",
     "outDir": "../../dist/out-tsc",
-    "rootDir": "."
+    "rootDir": ".",
+    "types": ["node"]
   },
   "exclude": ["**/*.spec.ts", "**/*.test.ts", "angular"],
   "include": ["**/*.ts", "references.d.ts"]
