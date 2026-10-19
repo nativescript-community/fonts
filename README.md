@@ -332,7 +332,12 @@ In the examples above `stripCharactersFromFont` is set to `true`.  This ensures 
 
 For a better development experience you want to set this to false during development, one option is to set it to the value `env.production` which should be true on release builds.
 
+## Troubleshoot
 
+If characters are not rendering it may be worth checking the required css entry for the generated fonts.
+
+1. copy the fonts from `platforms/android/app/src/main/assets/app/fonts` (android) or `apps/<app Name>/platforms/ios/demo/app/fonts` (ios) to `src\fonts` 
+2. run the `ns fonts` command, this will output the css entries that match the fonts.
 
 ## Credits
 
